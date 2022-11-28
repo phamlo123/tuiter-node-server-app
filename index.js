@@ -10,8 +10,8 @@ import mongoose from "mongoose";
 
 // mongoose.connect('mongodb://localhost:27017/tuiter');
 // mongoose.connect(DB_CONNECTION_STRING);
-const DB_CONNECTION_STRING = 'mongodb+srv://terencepham:Philong1903!@atlascluster.ygptc2j.mongodb.net/?retryWrites=true&w=majority'
-const CONNECTION_STRING = DB_CONNECTION_STRING || 'mongodb://localhost:27017/tuiter'
+
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/tuiter'
 mongoose.connect(CONNECTION_STRING);
 
 const app = express()
