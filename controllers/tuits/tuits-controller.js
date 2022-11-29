@@ -1,5 +1,5 @@
 import * as tuitsDao from './tuits-dao.js'
-
+import mongoose from 'mongoose';
 export default (app) => {
     app.post('/api/tuits', createTuit);
     app.get('/api/tuits', findTuits);
@@ -20,13 +20,16 @@ const findTuits  = async (req, res) => {
 }
 
 const updateTuit = async (req, res) => {
+    const tuitdIdToUpdate = req.params.tid;
     const updates = req.body;
-    const status = await tuitsDao.updateTuit(req.params.tid, updates);
+    const status = await tuitsDao.updateTuit(tuitdIdToUpdate, updates);
     res.json(status);
   }
   
 const deleteTuit = async (req, res) => {
-    const status = await tuitsDao.deleteTuit(req.params.tid);
+    const tuitdIdToDelete = req.params.tid;
+    const status = await tuitsDao.deleteTuit(tuitdIdToDelete);
+    
     res.json(status);
 }
   
