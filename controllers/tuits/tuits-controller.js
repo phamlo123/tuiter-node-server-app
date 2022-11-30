@@ -10,6 +10,8 @@ const createTuit = async (req, res) => {
     newTuit.likes = 0;
     newTuit.liked = false;
     newTuit.dislikes = 0;
+    newTuit.image = "nasa.png";
+    newTuit.handle = "@nasa";
     const insertedTuit = await tuitsDao.createTuit(newTuit);
     res.json(insertedTuit);
   }
