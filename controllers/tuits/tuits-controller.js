@@ -1,5 +1,4 @@
 import * as tuitsDao from './tuits-dao.js'
-import mongoose from 'mongoose';
 export default (app) => {
     app.post('/api/tuits', createTuit);
     app.get('/api/tuits', findTuits);
